@@ -1,36 +1,78 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI Chat Application
 
-## Getting Started
+This is a small AI-powered chat application built with Next.js 15 (App Router), Tailwind CSS, ShadCN UI components, and TypeScript. It integrates with HuggingFace's API to provide AI responses in a conversational format.
 
-First, run the development server:
+### Implementation Overview
 
+
+## Features
+
+- **Real-time Chat**: Users can send messages and receive AI-generated responses.
+- **Typing Indicator**: Displays an indicator while the AI processes a response.
+- **Reusable Hooks**: Logic for managing chat messages is encapsulated in a custom hook, `useChat`, to maintain clean and modular code.
+- **Responsive Design**: The app is styled using Tailwind CSS for a modern and responsive user interface.
+
+### Key Components
+1. **`useChat` Hook**: 
+   - Manages chat state (`messages` array) and communication with Hugging Face AI via `fetchHuggingFaceResponse`.
+   - Handles both user messages and AI responses in a reusable, isolated manner.
+
+2. **Chat Components**:
+   - `ChatWindow`: Main layout that combines the chat area, sidebar, and message input.
+   - `MessageBubble`: Displays individual chat messages with sender information.
+   - `TypingIndicator`: Shows a loading indicator while waiting for AI responses.
+   - `MessageInput`: Input field for users to type and send messages.
+
+3. **AI Response Handling**:
+   - AI responses are fetched using the Hugging Face API via a utility function `fetchHuggingFaceResponse`.
+
+### Workflow
+1. User sends a message via the `MessageInput` component.
+2. The message is passed to the `sendMessage` function in the `useChat` hook.
+3. `sendMessage` updates the chat state with the user's message, fetches the AI response, and appends the response to the chat history.
+4. The `ChatWindow` component renders the updated messages in real-time.
+
+## Tech Stack
+
+- **Frontend**: Next.js (App Router)
+- **Styling**: Tailwind CSS, ShadCN UI components
+- **AI Logic**: HuggingFace API (text-davinci-003 model)
+- **Other Libraries**: Fetch for API calls
+- **TypeScript** for type safety
+
+## Setup
+
+### 1. Clone the repository:
+```bash
+git clone https://github.com/your-username/ai-chat-app.git
+cd ai-chat-app
+```
+### 2. Install dependencies::
+```bash
+npm install
+```
+### 3. Set up environment variables:
+```bash
+NEXT_PUBLIC_HUGGINGFACE_API_KEY=your_hugging_face_api_key
+```
+### 4. Run the project locally:
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+The app will be available at http://localhost:${PORT}.
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+### Final Instructions:
+1. **Run Locally**:
+   - Ensure your OpenAI API key is correctly set up in the `.env.local` file.
+   - Use `npm run dev` to start the development server locally.
+2. **Deploy**:
+   - Push your code to GitHub.
+   - Deploy to Vercel or any other platform for hosting.
+   
+This should be the full setup and ready for deployment! If you need anything else, feel free to ask.
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
