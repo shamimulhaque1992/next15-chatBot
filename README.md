@@ -45,7 +45,7 @@ This is a small AI-powered chat application built with Next.js 15 (App Router), 
 ### 1. Clone the repository:
 ```bash
 git clone https://github.com/shamimulhaque1992/next15-chatBot.git
-cd ai-chat-app
+cd next15-chatBot
 ```
 ### 2. Install dependencies::
 ```bash
