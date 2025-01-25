@@ -60,18 +60,6 @@ NEXT_PUBLIC_HUGGINGFACE_API_KEY=your_hugging_face_api_key
 npm run dev
 The app will be available at http://localhost:${PORT}.
 ```
-
-
-
----
-
-### Final Instructions:
-1. **Run Locally**:
-   - Ensure your OpenAI API key is correctly set up in the `.env.local` file.
-   - Use `npm run dev` to start the development server locally.
-2. **Deploy**:
-   - Push your code to GitHub.
-   - Deploy to Vercel or any other platform for hosting.
    
 This should be the full setup and ready for deployment! If you need anything else, feel free to ask.
 
